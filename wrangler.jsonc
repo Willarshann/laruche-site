@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "laruche",
+  "compatibility_date": "2025-06-01",
+  "pages_build_output_dir": "public",
+  "kv_namespaces": [
+    {
+      "binding": "STORE",
+      "id": "PLACEHOLDER_A_REMPLACER_APRES_CREATION_DU_NAMESPACE"
+    }
+  ]
+}

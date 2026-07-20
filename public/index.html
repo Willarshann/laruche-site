@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LaRuche — Vivre Haïti dans chaque goutte</title>
+  <meta name="description" content="LaRuche, entreprise apicole haïtienne. Miel 100 % naturel Bee Happy. Vivre Haïti dans chaque goutte." />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito+Sans:wght@400;600;700;800&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#top">Aller au contenu</a>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header" id="header">
+    <a class="brand" href="#top" aria-label="LaRuche — accueil">
+      <img src="images/logo-white-h.webp" alt="LaRuche" class="brand__logo brand__logo--on-dark" />
+      <img src="images/logo-color-h.webp" alt="LaRuche" class="brand__logo brand__logo--on-light" hidden />
+    </a>
+    <nav class="nav" id="primaryNav" aria-label="Navigation principale">
+      <a href="#histoire">Histoire</a>
+      <a href="#valeurs">Valeurs</a>
+      <a href="#produits">Produits</a>
+      <a href="#marque">La marque</a>
+      <a href="#contact" class="nav__cta">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-controls="primaryNav" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" id="top">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <canvas class="hero__particles" id="particles" aria-hidden="true"></canvas>
+    <div class="hero__inner">
+      <img class="hero__logo reveal" src="images/logo-white-v.webp" alt="LaRuche" data-edit-img="heroLogo" />
+      <p class="hero__eyebrow reveal" data-edit="hero.eyebrow">Entreprise apicole · Haïti</p>
+      <h1 class="hero__title reveal" data-edit="hero.title">Vivre Haïti dans chaque goutte</h1>
+      <p class="hero__sub reveal" data-edit="hero.sub">Un miel 100 % naturel qui reconnecte le monde à l'essence du patrimoine naturel et culturel d'Haïti.</p>
+      <div class="hero__actions reveal">
+        <a class="btn btn--primary" href="#produits" data-edit="hero.cta">Découvrir nos produits</a>
+        <a class="btn btn--ghost" href="#histoire" data-edit="hero.cta2">Notre histoire</a>
+      </div>
+    </div>
+    <div class="hero__scroll" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- ==================== HISTOIRE ==================== -->
+  <section class="section section--histoire" id="histoire">
+    <div class="wrap histoire">
+      <div class="histoire__text">
+        <p class="eyebrow reveal" data-edit="histoire.eyebrow">Notre histoire</p>
+        <h2 class="reveal" data-edit="histoire.title">L'apiculture au service d'Haïti</h2>
+        <p class="lede reveal" data-edit="histoire.intro">LaRuche est une entreprise apicole engagée dans la valorisation du patrimoine naturel et culturel d'Haïti.</p>
+        <div class="vision-card reveal">
+          <span class="vision-card__label" data-edit="histoire.visionLabel">Notre vision</span>
+          <p class="vision-card__text" data-edit="histoire.vision">Reconnecter le monde à l'essence du patrimoine naturel et culturel d'Haïti.</p>
+        </div>
+      </div>
+      <div class="histoire__media reveal">
+        <div class="histoire__frame">
+          <img src="images/mockup-letterhead.webp" alt="Identité LaRuche" data-edit-img="histoire" loading="lazy" />
+        </div>
+        <div class="histoire__hex" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MISSIONS ==================== -->
+  <section class="section section--missions" id="missions">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow reveal" data-edit="missions.eyebrow">Nos missions</p>
+        <h2 class="reveal" data-edit="missions.title">Trois engagements</h2>
+      </div>
+      <div class="missions-grid">
+        <article class="mission reveal">
+          <span class="mission__num">01</span>
+          <p data-edit="missions.m1">Créer et préserver un lien durable entre les consommateurs, la nature et la culture haïtienne en offrant une expérience authentique.</p>
+        </article>
+        <article class="mission reveal">
+          <span class="mission__num">02</span>
+          <p data-edit="missions.m2">Renforcer l'économie locale en créant des opportunités à travers la valorisation des richesses de l'apiculture.</p>
+        </article>
+        <article class="mission reveal">
+          <span class="mission__num">03</span>
+          <p data-edit="missions.m3">Investir dans la formation et l'épanouissement des jeunes afin qu'ils deviennent des acteurs du développement de leurs communautés.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== VALEURS ==================== -->
+  <section class="section section--valeurs" id="valeurs">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow reveal" data-edit="valeurs.eyebrow">Nos valeurs</p>
+        <h2 class="reveal" data-edit="valeurs.title">Ce qui nous guide</h2>
+      </div>
+      <div class="valeurs-grid">
+        <article class="valeur reveal">
+          <div class="valeur__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 5.4L20 8l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-.6z"/></svg>
+          </div>
+          <h3 data-edit="valeurs.v1Title">Authenticité</h3>
+          <p data-edit="valeurs.v1Desc">Un produit vrai, issu du terroir haïtien, sans artifice.</p>
+        </article>
+        <article class="valeur reveal">
+          <div class="valeur__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.5.8-1.3 2-2.5 4-2.5 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg>
+          </div>
+          <h3 data-edit="valeurs.v2Title">Bien-être</h3>
+          <p data-edit="valeurs.v2Desc">Le miel comme source naturelle de santé et de plaisir.</p>
+        </article>
+        <article class="valeur reveal">
+          <div class="valeur__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>
+          </div>
+          <h3 data-edit="valeurs.v3Title">Croissance</h3>
+          <p data-edit="valeurs.v3Desc">Faire grandir les communautés et les jeunes qui les composent.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PRODUITS ==================== -->
+  <section class="section section--produits" id="produits">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow reveal" data-edit="produits.eyebrow">Nos produits</p>
+        <h2 class="reveal" data-edit="produits.title">Bee Happy</h2>
+        <p class="section-head__sub reveal" data-edit="produits.sub">Notre miel 100 % naturel, décliné en trois formats.</p>
+      </div>
+      <div class="produits-grid" id="produitsGrid">
+        <!-- rempli par cms.js ; version par défaut ci-dessous -->
+        <article class="produit reveal">
+          <div class="produit__media"><img src="images/product-175.webp" alt="Bee Happy 175 ml" loading="lazy" /></div>
+          <div class="produit__badge">100 % Naturel</div>
+          <h3>Bee Happy</h3>
+          <p class="produit__vol">175 ml</p>
+          <p class="produit__desc">Le format nomade, à glisser partout.</p>
+        </article>
+        <article class="produit reveal">
+          <div class="produit__media"><img src="images/product-350.webp" alt="Bee Happy 350 ml" loading="lazy" /></div>
+          <div class="produit__badge">100 % Naturel</div>
+          <h3>Bee Happy</h3>
+          <p class="produit__vol">350 ml</p>
+          <p class="produit__desc">Le format familial du quotidien.</p>
+        </article>
+        <article class="produit reveal">
+          <div class="produit__media"><img src="images/product-750.webp" alt="Bee Happy 750 ml" loading="lazy" /></div>
+          <div class="produit__badge">100 % Naturel</div>
+          <h3>Bee Happy</h3>
+          <p class="produit__vol">750 ml</p>
+          <p class="produit__desc">Le grand format pour les amateurs.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MARQUE EN SITUATION ==================== -->
+  <section class="section section--marque" id="marque">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow reveal" data-edit="marque.eyebrow">La marque en situation</p>
+        <h2 class="reveal" data-edit="marque.title">L'identité LaRuche partout</h2>
+        <p class="section-head__sub reveal" data-edit="marque.sub">Du pot à la carte de visite, une identité cohérente et soignée.</p>
+      </div>
+      <div class="marque-grid" id="marqueGrid">
+        <figure class="mock reveal"><img src="images/mockup-card.webp" alt="Carte de visite" loading="lazy" /><figcaption>Carte de visite</figcaption></figure>
+        <figure class="mock reveal"><img src="images/mockup-cap.webp" alt="Casquette" loading="lazy" /><figcaption>Casquette</figcaption></figure>
+        <figure class="mock reveal"><img src="images/mockup-shirt.webp" alt="Chemise" loading="lazy" /><figcaption>Chemise</figcaption></figure>
+        <figure class="mock reveal"><img src="images/mockup-tshirt.webp" alt="T-shirt" loading="lazy" /><figcaption>T-shirt</figcaption></figure>
+        <figure class="mock reveal"><img src="images/mockup-letterhead.webp" alt="Papier à en-tête" loading="lazy" /><figcaption>Papier à en-tête</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT ==================== -->
+  <section class="section section--contact" id="contact">
+    <div class="wrap contact">
+      <div class="contact__intro">
+        <p class="eyebrow reveal" data-edit="contact.eyebrow">Contact</p>
+        <h2 class="reveal" data-edit="contact.title">Parlons-en</h2>
+        <p class="lede reveal" data-edit="contact.sub">Une question, une commande, un partenariat ? Écrivez-nous.</p>
+      </div>
+      <div class="contact__cards">
+        <a class="ccard reveal" id="waLink" href="https://wa.me/50937856706" target="_blank" rel="noopener">
+          <span class="ccard__k">WhatsApp / Téléphone</span>
+          <span class="ccard__v" data-edit="contact.phone">+509 3785-6706 / 3563-0175</span>
+        </a>
+        <a class="ccard reveal" id="mailLink" href="mailto:larucheht@gmail.com" target="_blank" rel="noopener">
+          <span class="ccard__k">E-mail</span>
+          <span class="ccard__v" data-edit="contact.email">larucheht@gmail.com</span>
+        </a>
+        <div class="ccard reveal">
+          <span class="ccard__k">Adresse</span>
+          <span class="ccard__v" data-edit="contact.address">524, Autoroute de Carrefour, Entre Thor 67 et 69</span>
+          <span class="ccard__note" data-edit="contact.addressNote">Bâtiment de New System Academy</span>
+        </div>
+        <div class="ccard reveal">
+          <span class="ccard__k">Site web</span>
+          <span class="ccard__v" data-edit="contact.site">www.laruche.com</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="wrap site-footer__inner">
+      <img src="images/logo-white-v.webp" alt="LaRuche" class="site-footer__logo" />
+      <p class="site-footer__tag" data-edit="footer.tagline">Vivre Haïti dans chaque goutte !</p>
+      <p class="site-footer__rights" data-edit="footer.rights">© 2026 LaRuche — Entreprise apicole haïtienne.</p>
+    </div>
+  </footer>
+
+  <script src="content-defaults.js"></script>
+  <script src="cms.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

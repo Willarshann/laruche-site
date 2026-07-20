@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin — LaRuche</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <style>
+    :root{
+      --amber:#F2B150; --amber-deep:#E28E1E; --honey:#D97A16;
+      --ebony:#413229; --ebony-deep:#33271F; --olive:#5B6A36;
+      --wax:#FBF6EC; --cream:#FFFDF8; --ink:#2A211A;
+      --muted:rgba(42,33,26,.62); --line:rgba(65,50,41,.16);
+      --ok:#3f7d4e; --err:#c0442a;
+      --sans:-apple-system,'Segoe UI',system-ui,sans-serif;
+    }
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:var(--sans);background:var(--wax);color:var(--ink);line-height:1.5;}
+    img{max-width:100%;display:block;}
+    a{color:var(--honey);}
+    h1,h2,h3{margin:0;}
+
+    /* ---- Login ---- */
+    .login-wrap{min-height:100vh;display:grid;place-items:center;padding:24px;
+      background:radial-gradient(120% 90% at 70% 0%,#4d3b2d,var(--ebony) 60%,var(--ebony-deep));}
+    .login-card{background:var(--cream);border-radius:18px;padding:38px 34px;width:100%;max-width:380px;
+      box-shadow:0 30px 70px rgba(0,0,0,.35);text-align:center;}
+    .login-card img{height:64px;width:auto;margin:0 auto 18px;}
+    .login-card h1{font-size:20px;margin-bottom:6px;}
+    .login-card p{color:var(--muted);font-size:14px;margin:0 0 22px;}
+    .field{text-align:left;margin-bottom:16px;}
+    .field label{display:block;font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--honey);margin-bottom:6px;}
+    input[type=text],input[type=password],textarea{
+      width:100%;padding:11px 13px;border:1.5px solid var(--line);border-radius:10px;
+      font-family:inherit;font-size:14.5px;color:var(--ink);background:#fff;resize:vertical;}
+    input:focus,textarea:focus{outline:none;border-color:var(--amber);box-shadow:0 0 0 3px rgba(242,177,80,.25);}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;
+      padding:12px 22px;border-radius:100px;font-weight:800;font-size:14.5px;border:1.5px solid transparent;
+      transition:transform .2s,background .2s,box-shadow .2s;font-family:inherit;}
+    .btn--primary{background:var(--amber);color:var(--ebony-deep);width:100%;}
+    .btn--primary:hover{background:var(--amber-deep);transform:translateY(-1px);}
+    .btn--ghost{background:transparent;border-color:var(--line);color:var(--ink);}
+    .btn--ghost:hover{border-color:var(--amber);}
+    .msg{font-size:13.5px;margin-top:12px;min-height:18px;}
+    .msg.ok{color:var(--ok);} .msg.err{color:var(--err);}
+    .hidden{display:none !important;}
+
+    /* ---- App ---- */
+    .topbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;
+      gap:16px;padding:14px 22px;background:rgba(251,246,236,.94);backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);}
+    .topbar__brand{display:flex;align-items:center;gap:12px;}
+    .topbar__brand img{height:34px;width:auto;}
+    .topbar__brand span{font-weight:800;font-size:15px;}
+    .topbar__actions{display:flex;gap:10px;align-items:center;}
+    .app{max-width:920px;margin:0 auto;padding:28px 22px 120px;}
+    .intro{color:var(--muted);font-size:14.5px;margin:0 0 24px;}
+
+    .card{background:var(--cream);border:1px solid var(--line);border-radius:16px;
+      padding:22px 22px 6px;margin-bottom:20px;box-shadow:0 2px 10px rgba(65,50,41,.06);}
+    .card > h2{font-size:16px;color:var(--ebony);margin-bottom:4px;
+      display:flex;align-items:center;gap:9px;}
+    .card > h2::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--amber);}
+    .card > .card__hint{color:var(--muted);font-size:13px;margin:0 0 18px;}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;}
+    .field.full{grid-column:1 / -1;}
+
+    /* image field */
+    .imgfield{display:flex;gap:14px;align-items:flex-start;padding:12px;border:1px dashed var(--line);border-radius:12px;background:#fff;}
+    .imgfield__preview{width:88px;height:88px;border-radius:10px;overflow:hidden;flex:0 0 auto;background:var(--wax);
+      display:grid;place-items:center;border:1px solid var(--line);}
+    .imgfield__preview img{width:100%;height:100%;object-fit:contain;}
+    .imgfield__body{flex:1;min-width:0;}
+    .imgfield__body .upbtn{margin-top:8px;}
+    .uploading{font-size:12.5px;color:var(--honey);margin-top:6px;}
+
+    /* list editor */
+    .item{border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px;background:#fff;position:relative;}
+    .item__head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+    .item__head h3{font-size:14px;color:var(--honey);}
+    .item .grid2{margin-bottom:4px;}
+    .del{background:transparent;border:1px solid var(--line);color:var(--err);border-radius:8px;padding:5px 11px;
+      font-size:12.5px;font-weight:700;cursor:pointer;}
+    .del:hover{border-color:var(--err);}
+    .addbtn{margin-top:2px;}
+
+    /* save bar */
+    .savebar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;align-items:center;justify-content:space-between;
+      gap:14px;padding:14px 22px;background:var(--ebony);color:var(--wax);box-shadow:0 -6px 24px rgba(0,0,0,.2);}
+    .savebar .status{font-size:13.5px;}
+    .savebar .status.ok{color:#a9e0b4;} .savebar .status.err{color:#f2a48f;}
+    .savebar .btn--primary{width:auto;padding:12px 30px;}
+    label small{font-weight:500;text-transform:none;letter-spacing:0;color:var(--muted);}
+    @media(max-width:640px){ .grid2{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+
+  <!-- ============ LOGIN ============ -->
+  <div class="login-wrap" id="loginView">
+    <form class="login-card" id="loginForm">
+      <img src="images/logo-color-v.png" alt="LaRuche" />
+      <h1>Espace d'administration</h1>
+      <p>Entrez le mot de passe pour modifier le site.</p>
+      <div class="field">
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" autocomplete="current-password" required />
+      </div>
+      <button class="btn btn--primary" type="submit">Se connecter</button>
+      <div class="msg" id="loginMsg"></div>
+    </form>
+  </div>
+
+  <!-- ============ APP ============ -->
+  <div class="hidden" id="appView">
+    <div class="topbar">
+      <div class="topbar__brand">
+        <img src="images/logo-color-h.png" alt="LaRuche" />
+        <span>Administration</span>
+      </div>
+      <div class="topbar__actions">
+        <a class="btn btn--ghost" href="/" target="_blank" rel="noopener">Voir le site</a>
+        <button class="btn btn--ghost" id="logoutBtn" type="button">Déconnexion</button>
+      </div>
+    </div>
+
+    <div class="app">
+      <p class="intro">Modifiez les textes et les images ci-dessous, puis cliquez sur <strong>Enregistrer</strong> en bas. Les changements apparaissent aussitôt sur le site public.</p>
+      <div id="forms"><!-- généré par admin.js --></div>
+    </div>
+
+    <div class="savebar">
+      <span class="status" id="saveStatus">Prêt.</span>
+      <button class="btn btn--primary" id="saveBtn" type="button">Enregistrer</button>
+    </div>
+  </div>
+
+  <script src="content-defaults.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
